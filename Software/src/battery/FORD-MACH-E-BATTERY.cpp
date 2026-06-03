@@ -7,7 +7,12 @@
 
 void FordMachEBattery::update_values() {
 
-  datalayer.battery.status.real_soc = battery_soc;
+  if (datalayer.battery.info.number_of_cells == 108) {
+    datalayer.battery.status.real_soc =
+        battery_soc > SOC_OFFSET_108S_LFP_PPTT ? battery_soc - SOC_OFFSET_108S_LFP_PPTT : 0;
+  } else {
+    datalayer.battery.status.real_soc = battery_soc;
+  }
 
   if (pid_hvb_soh < 101) {
     datalayer.battery.status.soh_pptt = pid_hvb_soh * 100;

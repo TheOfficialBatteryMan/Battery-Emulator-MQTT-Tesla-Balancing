@@ -35,10 +35,11 @@ class FordMachEBattery : public CanBattery {
   static const int MAX_CAPACITY_96S_WH = 75700;
 
   //78.2 kWh LFP CATL
-  static const int MAX_PACK_VOLTAGE_108S_DV = 3870;
+  static const int MAX_PACK_VOLTAGE_108S_DV = 3942;  // 108 cells at 3.65 V
   static const int MIN_PACK_VOLTAGE_108S_DV = 3200;
   static const int MAX_CAPACITY_108S_WH = 78200;
   static const int MAX_CELL_VOLTAGE_LFP_MV = 3670;
+  static const int SOC_OFFSET_108S_LFP_PPTT = 500;  // Report 5.00% below the BECM SOC
 
   //Common
   static const int MAX_CELL_DEVIATION_MV = 250;
